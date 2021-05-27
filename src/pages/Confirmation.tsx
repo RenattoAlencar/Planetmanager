@@ -13,7 +13,7 @@ export function Confirmation() {
       <View style={styles.content}>
 
         <Text style={styles.emoji} >
-          😁
+          🌱
         </Text>
 
         <Text style={styles.title} > Prontinho</Text>
@@ -23,7 +23,7 @@ export function Confirmation() {
         </Text>
 
         <View style={styles.footer} >
-          <Button />
+          <Button title='Começar' />
         </View>
       </View>
     </SafeAreaView>
