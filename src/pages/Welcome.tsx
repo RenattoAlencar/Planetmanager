@@ -1,5 +1,6 @@
 import React from 'react'
 import { Dimensions, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 
 import watering from '../assets/watering.png'
 
@@ -19,10 +20,9 @@ export function Welcome() {
         Nós cuidamos de lembrar você sempre que precisar.
       </Text>
 
+
       <TouchableOpacity style={styles.button} activeOpacity={0.8}>
-        <Text style={styles.buttonText}>
-          {'>'}
-        </Text>
+        <Feather name="chevron-right" style={styles.buttonIcon} />
       </TouchableOpacity >
 
     </SafeAreaView >
@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
     height: 56,
     width: 56
   },
-  buttonText: {
+  buttonIcon: {
+    fontSize: 32,
     color: colors.white,
-    fontSize: 24
   }
 
 })
