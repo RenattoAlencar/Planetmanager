@@ -18,7 +18,7 @@ export function PlantSelect() {
       </View>
       <View>
         <FlatList data={[1, 2, 3, 4, 5, 6, 7, 8]} renderItem={({ item }) => {
-          return <EnviromentButton title='Cozinha' active />
+          return <EnviromentButton title='Cozinha' active /> //COLOCA KEY ID
 
         }} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.enviromentList} />
       </View>
