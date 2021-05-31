@@ -34,12 +34,10 @@ export function PlantSelect() {
   const [filteredPlants, setFilteredPlants] = useState<PlantsProps[]>([])
   const [enviromentSelected, setEnviromentSelected] = useState('all')
 
-
-
   function handleEnviromentSelected(enviroment: string) {
     setEnviromentSelected(enviroment)
 
-    if (enviroment == 'all')
+    if (enviroment === 'all')
       return setFilteredPlants(plants)
 
     const filtered = plants.filter(plant => plant.environments.includes(enviroment))
