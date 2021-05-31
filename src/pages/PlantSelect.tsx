@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 
 import { Header } from '../components/Header'
@@ -144,10 +144,14 @@ export function PlantSelect() {
           onEndReachedThreshold={0.1}
           onEndReached={({ distanceFromEnd }) =>
             handleFetchMore(distanceFromEnd)}
+          ListFooterComponent={
+            loadingMore ?
+              <ActivityIndicator color={colors.green} />
+              : <></>
+          }
         />
 
       </View>
-
     </View>
   )
 }
