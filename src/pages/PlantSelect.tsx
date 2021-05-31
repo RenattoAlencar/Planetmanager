@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { FlatList } from 'react-native-gesture-handler'
 
 import { Header } from '../components/Header'
 import { EnviromentButton } from '../components/EnviromentButton'
-import { FlatList } from 'react-native-gesture-handler'
+import { PlantCardPrimary } from '../components/PlantCardPrimary'
 
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 
 import api from '../services/api'
-import { PlantCardPrimary } from '../components/PlantCardPrimary'
 
 interface EnviromentsProps {
   key: string,
@@ -31,6 +31,13 @@ interface PlantsProps {
 export function PlantSelect() {
   const [enviroments, setEnviroments] = useState<EnviromentsProps[]>([])
   const [plants, setPlants] = useState<PlantsProps[]>([])
+  const [enviromentSelected, setEnviromentSelected] = useState('all')
+
+
+  function handleEnviromentSelected(enviroment: string) {
+    setEnviromentSelected(enviroment)
+  }
+
 
   useEffect(() => {
     async function fetchEnviroment() {
@@ -75,10 +82,9 @@ export function PlantSelect() {
 
       <View>
         <FlatList data={enviroments} renderItem={({ item }) => (
-          <EnviromentButton title={item.title} />
+          <EnviromentButton title={item.title} active={item.key === enviromentSelected} onPress={() => handleEnviromentSelected(item.key)} />
         )} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.enviromentList} />
       </View>
-
 
       <View style={styles.plants} >
         <FlatList data={plants} renderItem={({ item }) => (
