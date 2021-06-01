@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
@@ -32,6 +32,9 @@ export function UserIdentification() {
   }
 
   function handleSubmit() {
+    if (!name)
+      return Alert.alert(`Me diz como chamar você  😅`)
+
     navigation.navigate('Confirmation')
   }
 
