@@ -122,13 +122,16 @@ export function PlantSelect() {
       </View>
 
       <View>
-        <FlatList data={enviroments} renderItem={({ item }) => (
+        <FlatList
+          data={enviroments}
+          keyExtractor={(item) => String(item.key)}
+          renderItem={({ item }) => (
 
-          <EnviromentButton
-            title={item.title}
-            active={item.key === enviromentSelected}
-            onPress={() => handleEnviromentSelected(item.key)} />
-        )}
+            <EnviromentButton
+              title={item.title}
+              active={item.key === enviromentSelected}
+              onPress={() => handleEnviromentSelected(item.key)} />
+          )}
 
           horizontal showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.enviromentList} />
@@ -136,9 +139,12 @@ export function PlantSelect() {
       </View>
 
       <View style={styles.plants} >
-        <FlatList data={filteredPlants} renderItem={({ item }) => (
-          <PlantCardPrimary data={item} />
-        )}
+        <FlatList
+          data={filteredPlants}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => (
+            <PlantCardPrimary data={item} />
+          )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
           onEndReachedThreshold={0.1}
