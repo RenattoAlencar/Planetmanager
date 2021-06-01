@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native'
+
 import { SvgFromUri } from 'react-native-svg'
 
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'

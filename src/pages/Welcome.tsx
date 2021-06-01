@@ -1,5 +1,6 @@
 import React from 'react'
 import { Dimensions, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
 import { Feather } from '@expo/vector-icons'
 
 import watering from '../assets/watering.png'
@@ -15,7 +16,6 @@ export function Welcome() {
   function handleStart() {
     navigation.navigate('UserIdentification')
   }
-
 
   return (
     <SafeAreaView style={styles.container}>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
+
 import { FlatList } from 'react-native-gesture-handler'
 
 import { Header } from '../components/Header'
@@ -29,6 +30,7 @@ interface PlantsProps {
     repeat_every: string
   }
 }
+
 export function PlantSelect() {
   const [enviroments, setEnviroments] = useState<EnviromentsProps[]>([])
   const [plants, setPlants] = useState<PlantsProps[]>([])
@@ -39,8 +41,6 @@ export function PlantSelect() {
   const [page, setPage] = useState(1)
   const [loadingMore, setLoadingMore] = useState(false)
   const [loadedAll, setLoadedAll] = useState(false)
-
-
 
   function handleEnviromentSelected(enviroment: string) {
     setEnviromentSelected(enviroment)
