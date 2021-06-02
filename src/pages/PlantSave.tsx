@@ -7,25 +7,53 @@ import { SvgUri } from 'react-native-svg'
 
 import { Button } from '../components/Button'
 
+import { useRoute } from '@react-navigation/core'
+
 import waterdrop from '../assets/waterdrop.png'
 
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 
+
+interface Params {
+  plant: {
+    id: number,
+    name: string,
+    about: string,
+    water_tips: string,
+    photo: string,
+    environments: [string],
+    frequency: {
+      times: number,
+      repeat_every: string
+    }
+  }
+}
+
 export function PlantSave() {
+  const route = useRoute()
+
+  const { plant } = route.params as Params
+
   return (
     <View style={styles.container}>
       <View style={styles.plantInfo} >
-        <SvgUri uri='' height={150} width={150} />
-        <Text style={styles.plantName} >Nome da Planta</Text>
-        <Text style={styles.plantAbout} > Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde eum cumque adipisci, impedit voluptate fuga laborum soluta laboriosam asperiores, alias ex! Nisi sunt hic culpa aut sapiente pariatur cumque dolor? </Text>
+        <SvgUri uri={plant.photo} height={150} width={150} />
+
+        <Text style={styles.plantName} >
+          {plant.name}
+        </Text>
+
+        <Text style={styles.plantAbout} >
+          {plant.about}
+        </Text>
       </View>
 
       <View style={styles.controller} >
         <View style={styles.tipContainer}>
           <Image source={waterdrop} style={styles.tipImage} />
           <Text style={styles.tipText} >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem.
+            {plant.water_tips}
           </Text>
         </View>
         <Text style={styles.alertLabel} >
