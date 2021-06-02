@@ -8,11 +8,12 @@ import { EnviromentButton } from '../components/EnviromentButton'
 import { PlantCardPrimary } from '../components/PlantCardPrimary'
 import { Load } from '../components/Load'
 
+import { useNavigation } from '@react-navigation/core'
+
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 
 import api from '../services/api'
-import { useNavigation } from '@react-navigation/core'
 
 interface EnviromentsProps {
   key: string,
