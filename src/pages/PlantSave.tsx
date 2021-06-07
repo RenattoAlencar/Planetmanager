@@ -13,6 +13,8 @@ import { SvgUri } from 'react-native-svg'
 
 import { Button } from '../components/Button'
 
+import { PlantProps } from '../libs/storage'
+
 import { useRoute } from '@react-navigation/core'
 
 import waterdrop from '../assets/waterdrop.png'
@@ -22,18 +24,7 @@ import fonts from '../styles/fonts'
 
 
 interface Params {
-  plant: {
-    id: number,
-    name: string,
-    about: string,
-    water_tips: string,
-    photo: string,
-    environments: [string],
-    frequency: {
-      times: number,
-      repeat_every: string
-    }
-  }
+  plant: PlantProps
 }
 
 export function PlantSave() {
