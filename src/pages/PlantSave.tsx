@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, Text, Image, Platform, Alert } from 'react-native'
 
+import { TouchableOpacity } from 'react-native-gesture-handler'
+
 import { getBottomSpace } from 'react-native-iphone-x-helper'
-
-import { SvgUri } from 'react-native-svg'
-
-import { Button } from '../components/Button'
 
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker'
 
 import { isBefore, format } from 'date-fns'
+
+import { SvgUri } from 'react-native-svg'
+
+import { Button } from '../components/Button'
 
 import { useRoute } from '@react-navigation/core'
 
@@ -17,7 +19,6 @@ import waterdrop from '../assets/waterdrop.png'
 
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
 interface Params {
@@ -34,8 +35,6 @@ interface Params {
     }
   }
 }
-
-
 
 export function PlantSave() {
   const [selectedDateTime, setSelectedDateTime] = useState(new Date())
