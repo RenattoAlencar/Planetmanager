@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, View, Text, Image, Platform, Alert } from 'react-native'
 
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -13,7 +13,7 @@ import { SvgUri } from 'react-native-svg'
 
 import { Button } from '../components/Button'
 
-import { PlantProps } from '../libs/storage'
+import { loadPlant, PlantProps, savePlant } from '../libs/storage'
 
 import { useRoute } from '@react-navigation/core'
 
@@ -51,6 +51,19 @@ export function PlantSave() {
   function handleOpenDatetimePickerForAndroid() {
     setShowDatePicker(oldState => !oldState)
   }
+
+  async function handleSave() {
+    try {
+      await savePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime
+      })
+
+    } catch {
+      Alert.alert('Não foi possível salvar!')
+    }
+  }
+
 
   return (
     <View style={styles.container}>
@@ -97,7 +110,7 @@ export function PlantSave() {
 
           )
         }
-        <Button title='Cadastrar Planta' onPress={() => { }} />
+        <Button title='Cadastrar Planta' onPress={handleSave} />
 
       </View>
     </View>
