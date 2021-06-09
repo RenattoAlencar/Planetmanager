@@ -13,9 +13,9 @@ import { SvgUri } from 'react-native-svg'
 
 import { Button } from '../components/Button'
 
-import { loadPlant, PlantProps, savePlant } from '../libs/storage'
+import { PlantProps, savePlant } from '../libs/storage'
 
-import { useRoute } from '@react-navigation/core'
+import { useNavigation, useRoute } from '@react-navigation/core'
 
 import waterdrop from '../assets/waterdrop.png'
 
@@ -33,6 +33,8 @@ export function PlantSave() {
 
   const route = useRoute()
   const { plant } = route.params as Params
+
+  const navigation = useNavigation()
 
   function handleChangeTime(event: Event, dateTime: Date | undefined) {
     if (Platform.OS === 'android')
@@ -57,6 +59,14 @@ export function PlantSave() {
       await savePlant({
         ...plant,
         dateTimeNotification: selectedDateTime
+      });
+
+      navigation.navigate('Confirmation', {
+        title: 'Tudo certo',
+        subtitle: 'Fique tranquilo que sempre vamos lembrar você de cuidar da sua platinha com muito cuidado.',
+        buttonTitle: 'Muito obrigado',
+        icon: 'hug',
+        nextScreen: 'MyPlants'
       })
 
     } catch {
@@ -104,7 +114,7 @@ export function PlantSave() {
           Platform.OS === 'android' && (
             <TouchableOpacity onPress={handleOpenDatetimePickerForAndroid} style={styles.datetimePickerForAndroid} >
               <Text style={styles.dataTimePickerText}>
-                {`Mudar Horário ${format(selectedDateTime, 'HH:mm')}`}
+                {`Horário ${format(selectedDateTime, 'HH:mm')}`}
               </Text>
             </TouchableOpacity>
 
