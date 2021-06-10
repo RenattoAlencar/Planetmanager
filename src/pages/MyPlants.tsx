@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Image, StyleSheet, View, Text, FlatList } from 'react-native'
 
-import { Header } from '../components/Header'
-
 import { formatDistance } from 'date-fns'
 import { pt } from 'date-fns/locale'
+
+import { Header } from '../components/Header'
+import { PlantCardSecondary } from '../components/PlantCardSecondary'
+import { Load } from '../components/Load'
 
 import { loadPlant, PlantProps } from '../libs/storage'
 
@@ -12,8 +14,6 @@ import waterdrop from '../assets/waterdrop.png'
 
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
-import { PlantCardSecondary } from '../components/PlantCardSecondary'
-import { Load } from '../components/Load'
 
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([])

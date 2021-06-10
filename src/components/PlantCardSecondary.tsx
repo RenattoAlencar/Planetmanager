@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { SvgFromUri } from 'react-native-svg'
-
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
+
+import { SvgFromUri } from 'react-native-svg'
 
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
@@ -12,7 +12,7 @@ interface PlantProps extends RectButtonProps {
   data: {
     name: string,
     photo: string,
-    hour?: string
+    hour: string
   }
 }
 

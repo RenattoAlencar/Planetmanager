@@ -1,5 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useEffect, useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
