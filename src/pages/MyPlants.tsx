@@ -13,6 +13,7 @@ import waterdrop from '../assets/waterdrop.png'
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 import { PlantCardSecondary } from '../components/PlantCardSecondary'
+import { Load } from '../components/Load'
 
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([])
@@ -29,7 +30,7 @@ export function MyPlants() {
         { locale: pt }
       )
       setNextWaterd(
-        `Não esqueça de regar${plantsStorage[0].name} à ${nextTime} horas.`
+        `Não esqueça de regar a ${plantsStorage[0].name} à ${nextTime} horas.`
       )
 
       setMyPlants(plantsStorage)
@@ -38,7 +39,9 @@ export function MyPlants() {
     loadStorageData()
   }, [])
 
-  useEffect(() => { }, [])
+
+  if (loading)
+    return <Load />
 
   return (
     <View style={styles.container} >
