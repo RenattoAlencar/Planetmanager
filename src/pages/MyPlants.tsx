@@ -59,7 +59,6 @@ export function MyPlants() {
         }
       }
     ])
-
   }
 
   if (loading)
